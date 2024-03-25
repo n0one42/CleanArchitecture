@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--#if (!UseApiOnly)-->
-    <SpaRoot>ClientApp\</SpaRoot>
+    <SpaRoot>ClientApp-React-Vite\</SpaRoot>
     <SpaProxyServerUrl>https://localhost:44447</SpaProxyServerUrl>
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <!--#endif-->
@@ -40,8 +40,12 @@
   <!--#if (!UseApiOnly)-->
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp-Vite\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp-Vite\**" />
+    <EmbeddedResource Remove="ClientApp-Vite\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp-Vite\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
