@@ -7,12 +7,15 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    // "moduleResolution": "bundler",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -21,7 +24,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "exclude": ["node_modules", "aspnetcore-https"],
+  "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx", "src/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

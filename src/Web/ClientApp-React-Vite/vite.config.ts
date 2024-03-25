@@ -12,6 +12,8 @@ export default defineConfig(({ mode }) => {
     ? env.ASPNETCORE_URLS.split(";")[0]
     : "https://localhost:5001";
 
+  console.log("API Target is: ", target);
+
   // Proxy configuration
   const proxyConfig = {
     "/api": { target, changeOrigin: true, secure: false },
