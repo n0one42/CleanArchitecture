@@ -1,19 +1,18 @@
-import Home from "./components/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import "./App.css";
+import AppRoutes from "./AppRoutes";
 import "./custom.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        {/* Define your routes here */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <Layout>
+      <Routes>
+        {AppRoutes.map((route, index) => {
+          const { element, ...rest } = route;
+          return <Route key={index} {...rest} element={element} />;
+        })}
+      </Routes>
+    </Layout>
   );
 }
 

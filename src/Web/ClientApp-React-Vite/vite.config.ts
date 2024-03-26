@@ -12,8 +12,6 @@ export default defineConfig(({ mode }) => {
     ? env.ASPNETCORE_URLS.split(";")[0]
     : "https://localhost:5001";
 
-  console.log("API Target is: ", target);
-
   // Proxy configuration
   const proxyConfig = {
     "/api": { target, changeOrigin: true, secure: false },
@@ -45,6 +43,7 @@ export default defineConfig(({ mode }) => {
     server: serverConfig,
     define: {
       __APP_ENV__: JSON.stringify(env.APP_ENV),
+      __BACKEND_URL__: JSON.stringify(target),
     },
     // Other Vite configuration options as needed
   };
